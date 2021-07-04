@@ -1,10 +1,11 @@
-import React from "react"
+import React from "react";
+import "./App.scss";
 
 function App() {
-  return (<div>
-    <h1>Welcome to Pomodoro</h1>
-    <h3>Date : {new Date().toDateString()}</h3>
-  </div>)
+  return (
+    <div>
+    </div>
+  );
 }
 
-export default App
+export default App;
