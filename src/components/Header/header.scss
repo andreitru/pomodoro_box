@@ -1,0 +1,53 @@
+.header {
+  box-shadow: 100px 100px 100px 100px var(--light-grey);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  &__logo {
+    color: var(--red);
+    font-weight: 300;
+    font-size: 24px;
+    padding-left: 52px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: url("../../assets/icons/tomato.svg") no-repeat left center;
+  }
+
+  &__settings {
+    margin-left: 20px;
+    background-image: url("../../assets/icons/settings.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+
+    &:hover {
+      background-image: url("../../assets/icons/settings-dark.svg");
+    }
+  }
+
+  &__stat {
+    margin-left: auto;
+    color: var(--red);
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 400;
+    padding-top: 4px;
+    padding-left: 25px;
+    background: url("../../assets/icons/equalizer.svg") no-repeat left center;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--dark-red);
+      background-image: url("../../assets/icons/equalizer-dark.svg");
+    }
+  }
+}
+

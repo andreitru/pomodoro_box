@@ -1,0 +1,45 @@
+.task {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--lighter-grey);
+
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid var(--dark-grey);
+    color: var(--black);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 300;
+    color: var(--black);
+    padding-top: 19px;
+    padding-bottom: 19px;
+    margin: 0 auto 0 10px;
+
+    &--input {
+      border: none;
+    }
+  }
+
+  &__btn {
+    width: 26px;
+    height: 26px;
+    background: url("../../../../assets/icons/menu.svg") no-repeat center;
+  }
+
+  &:first-child {
+    border-top: 1px solid var(--lighter-grey);
+  }
+}

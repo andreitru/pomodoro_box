@@ -1,0 +1,56 @@
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(76, 76, 76, 0.5);
+
+  &__container {
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px 85px;
+    background-color: var(--white);
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--black);
+    margin-bottom: 25px;
+  }
+
+  &__confirm {
+    padding: 20px 50px;
+    background-color: var(--red);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    margin-bottom: 20px;
+  }
+
+  &__cancel {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    color: var(--black);
+    text-decoration: underline;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: url("../../../../../assets/icons/x.svg") no-repeat center;
+  }
+}

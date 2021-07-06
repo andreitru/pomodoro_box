@@ -1,0 +1,35 @@
+.clock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 200;
+  font-size: 150px;
+  line-height: 180px;
+  color: var(--black);
+  padding-top: 70px;
+
+  &__btn {
+    position: absolute;
+    right: 12%;
+    background-color: var(--dark-grey);
+    border-radius: 50%;
+    color: var(--white);
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--dark-green);
+    }
+  }
+
+  &--start {
+    color: var(--red);
+  }
+
+  &--break {
+    color: var(--light-green);
+  }
+}

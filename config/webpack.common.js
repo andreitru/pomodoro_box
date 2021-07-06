@@ -1,8 +1,9 @@
 const paths = require("./paths");
 
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
   entry: [paths.src + "/index.js"],
@@ -28,21 +29,30 @@ module.exports = {
   ],
   module: {
     rules: [
-      {test: /\.(js|jsx)$/, exclude: /node_modules/, use: ["babel-loader"]},
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, use: ["babel-loader"] },
       {
         test: /\.(scss|css)$/,
         use: [
           "style-loader",
           {
             loader: "css-loader",
-            options: {sourceMap: true, importLoaders: 1},
+            options: { sourceMap: true, importLoaders: 1 },
           },
-          {loader: "postcss-loader", options: {sourceMap: true}},
-          {loader: "sass-loader", options: {sourceMap: true}},
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                sourceMap: true,
+                ident: "postcss",
+                plugins: [postcssNormalize({ browsers: "last 2 versions" })]
+              },
+            }
+          },
+          { loader: "sass-loader", options: { sourceMap: true } },
         ],
       },
-      {test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource"},
-      {test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline"},
+      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource" },
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" },
     ],
   },
 };

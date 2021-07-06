@@ -1,0 +1,65 @@
+.task-menu {
+  display: none;
+  position: absolute;
+  right: -74px;
+  top: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px solid var(--dark-grey);
+  background: var(--white);
+  z-index: 2;
+
+  &__item {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    color: var(--grey);
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    user-select: none;
+    text-align: left;
+
+    &--plus {
+      background-image: url("../../../../../assets/icons/plus.svg");
+    }
+
+    &--minus {
+      background-image: url("../../../../../assets/icons/minus.svg");
+
+      &:disabled {
+        background-image: url("../../../../../assets/icons/minus-disabled.svg");
+      }
+    }
+
+    &--edit {
+      background-image: url("../../../../../assets/icons/edit.svg");
+    }
+
+    &--delete {
+      background-image: url("../../../../../assets/icons/delete.svg");
+    }
+
+    &:hover {
+      background-color: var(--light-grey);
+    }
+  }
+
+  &--open {
+    display: block;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: -6px;
+    left: 74px;
+    transform: rotate(135deg);
+    border-bottom: 1px solid var(--dark-grey);
+    border-left: 1px solid var(--dark-grey);
+    background-color: var(--white);
+    width: 10px;
+    height: 10px;
+  }
+}

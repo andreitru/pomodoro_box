@@ -11,7 +11,7 @@ module.exports = {
     "prettier",
   ],
   parserOptions: {
-    ecmaVersion: "2017",
+    ecmaVersion: "2021",
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       jsx: true,
@@ -28,14 +28,13 @@ module.exports = {
     "react/no-unused-state": "error",
     "react/jsx-no-bind": "error",
     "array-callback-return": "error",
-    "consistent-return": "error",
     "babel/no-invalid-this": "error",
     "no-unused-vars": ["error", {argsIgnorePattern: "^_"}],
   },
   settings: {
     react: {
       pragma: "React",
-      version: "15.0",
+      version: "detect",
       flowVersion: "0.63.1",
     },
   },

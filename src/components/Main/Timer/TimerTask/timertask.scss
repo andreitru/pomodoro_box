@@ -1,0 +1,21 @@
+.timer-task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__count {
+    color: var(--grey);
+    font-weight: 400;
+    font-size: 16px;
+
+    i {
+      font-style: normal;
+    }
+  }
+
+  &__title {
+    color: var(--black);
+    font-weight: 400;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,24 @@
+.settings {
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: var(--black);
+  }
+
+  &__input {
+    width: 70%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--black);
+  }
+}

@@ -1,0 +1,28 @@
+.timer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--dark-grey);
+  padding: 20px 40px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin: 0;
+  }
+
+  &__counter {
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--white);
+  }
+
+  &--start {
+    background-color: var(--red);
+  }
+
+  &--break {
+    background-color: var(--light-green);
+  }
+}

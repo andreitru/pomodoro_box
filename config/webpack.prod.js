@@ -1,11 +1,12 @@
 const paths = require("./paths");
 
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const postcssNormalize = require('postcss-normalize');
 
 module.exports = merge(common, {
   mode: "production",
@@ -33,7 +34,16 @@ module.exports = merge(common, {
             sourceMap: false,
           },
         },
-        "postcss-loader",
+        {
+          loader: "postcss-loader",
+          options: {
+            postcssOptions: {
+              sourceMap: false,
+              ident: "postcss",
+              plugins: [postcssNormalize({ browsers: "last 2 versions" })]
+            },
+          }
+        },
         "sass-loader",
       ],
     }]

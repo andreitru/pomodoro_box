@@ -1,3 +1,5 @@
+@import-normalize;
+
 @font-face {
   font-family: "SFUIDisplay";
   src: url("./assets/fonts/SFUIDisplay-Thin.woff2") format("woff2");
@@ -36,4 +38,62 @@
   font-display: swap;
   font-weight: 700;
   font-style: normal;
+}
+
+:root {
+  --white: #fff;
+  --black: #333;
+  --red: #dc3e22;
+  --dark-red: #b7280f;
+  --dark-grey: #c4c4c4;
+  --grey: #999;
+  --light-grey: #f4f4f4;
+  --lighter-grey: #e4e4e4;
+  --dark-green: #899441;
+  --light-green: #a8b64f;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "SFUIDisplay", sans-serif;
+  font-weight: 400;
+  background-color: var(--white);
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-reset {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
