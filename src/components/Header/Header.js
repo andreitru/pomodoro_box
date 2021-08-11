@@ -14,7 +14,7 @@ export function Header() {
         <a href="#" className="header__stat">
           Статистика
         </a>
-        {/*<button className="header__settings btn-reset" onClick={() => setIsModalOpen(!isModalOpen)}/>*/}
+        <button className="header__settings btn-reset" onClick={() => setIsModalOpen(!isModalOpen)}/>
       </div>
       <ModalSettings
         isModalOpen={isModalOpen}

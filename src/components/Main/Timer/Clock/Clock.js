@@ -127,7 +127,7 @@ function Clock({
 Clock.propTypes = {
   taskTimeCounter: PropTypes.number.isRequired,
   setTaskTimeCounter: PropTypes.func.isRequired,
-  breakTimeCounter: PropTypes.number.isRequired,
+  breakTimeCounter: PropTypes.number,
   setBreakTimeCounter: PropTypes.func.isRequired,
 };
 

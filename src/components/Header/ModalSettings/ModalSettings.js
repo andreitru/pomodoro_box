@@ -36,6 +36,24 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
     setCycle(e.target.value);
   }
 
+  function buttonMinusClick(state, func) {
+    const num = state === cycle || state === breakDuration ? 1 : 5;
+    if (state > 5) {
+      func(state - num);
+    } else if (state <= 5 && state > 1) {
+      func(state - 1);
+    }
+  }
+
+  function buttonPlusClick(state, func) {
+    const num = state === cycle || state === breakDuration ? 1 : 5;
+    if (state >= 5) {
+      func(state + num);
+    } else if (state <= 5 && state >= 1) {
+      func(state + 1);
+    }
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(
@@ -59,46 +77,99 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
           <form className="settings__form">
             <label className="settings__label">
               Продолжительность помидора, мин.
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--minus"
+                onClick={() => buttonMinusClick(taskDuration, setTaskDuration)}
+              >
+                -
+              </button>
               <input
+                readOnly
                 type="number"
                 value={taskDuration}
-                min="1"
-                max="99"
                 className="settings__input"
                 onChange={handleTaskDurationChange}
               />
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--plus"
+                onClick={() => buttonPlusClick(taskDuration, setTaskDuration)}
+              >
+                +
+              </button>
             </label>
             <label className="settings__label">
               Продолжительность короткого перерыва, мин.
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--minus"
+                onClick={() => buttonMinusClick(breakDuration, setBreakDuration)}
+              >
+                -
+              </button>
               <input
+                readOnly
                 type="number"
                 value={breakDuration}
-                min="1"
-                max="99"
                 className="settings__input"
                 onChange={handleBreakDurationChange}
               />
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--plus"
+                onClick={() => buttonPlusClick(breakDuration, setBreakDuration)}
+              >
+                +
+              </button>
             </label>
             <label className="settings__label">
               Продолжительность длинного перерыва, мин.
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--minus"
+                onClick={() => buttonMinusClick(longBreakDuration, setLongBreakDuration)}
+              >
+                -
+              </button>
               <input
+                readOnly
                 type="number"
                 value={longBreakDuration}
-                min="1"
-                max="99"
                 className="settings__input"
                 onChange={handleLongBreakDurationChange}
               />
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--plus"
+                onClick={() => buttonPlusClick(longBreakDuration, setLongBreakDuration)}
+              >
+                +
+              </button>
             </label>
             <label className="settings__label">
               Количество помидоров до длинного перерыва
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--minus"
+                onClick={() => buttonMinusClick(cycle, setCycle)}
+              >
+                -
+              </button>
               <input
+                readOnly
                 type="number"
                 value={cycle}
-                min="1"
                 className="settings__input"
                 onChange={handleCycleChange}
               />
+              <button
+                type="button"
+                className="btn-reset settings__btn settings__btn--plus"
+                onClick={() => buttonPlusClick(cycle, setCycle)}
+              >
+                +
+              </button>
             </label>
             <button
               className="btn-reset modal__confirm"
