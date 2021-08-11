@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const timeSlice = createSlice({
   name: "time",
   initialState: {
-    taskTime: 180,
-    breakTime: 180,
-    initialBreakTime: 180,
-    longBreakTime: 180,
+    taskTime: 1500,
+    breakTime: 300,
+    initialBreakTime: 300,
+    longBreakTime: 900,
     timeOnTask: 0,
     timeOnPause: 0,
     taskCycle: 4,

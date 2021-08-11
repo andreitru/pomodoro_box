@@ -1,0 +1,14 @@
+.statistics {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  height: calc(100vh - 77px);
+  display: grid;
+  gap: 32px;
+  grid-template-rows: 55px auto 179px 179px;
+  grid-template-columns: repeat(12, 1fr);
+
+  &__title {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+}

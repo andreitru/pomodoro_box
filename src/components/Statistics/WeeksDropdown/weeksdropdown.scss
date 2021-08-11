@@ -1,0 +1,63 @@
+.weeks-dropdown {
+  position: relative;
+  max-width: 370px;
+  grid-column: 9 / -1;
+  grid-row: 1;
+  width: 100%;
+  justify-self: flex-end;
+
+  &__header {
+    position: relative;
+    padding: 20px 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black);
+    background-color: var(--light-grey);
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      top: 50%;
+      right: 17px;
+      background: url("../../../assets/icons/arrow.svg") no-repeat center;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__list-container {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    filter: drop-shadow(0px 10px 63px rgba(0, 0, 0, 0.07));
+  }
+
+  &__item {
+    position: relative;
+    padding: 20px 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black);
+    background-color: var(--light-grey);
+    cursor: pointer;
+
+    &:not(:first-child) {
+      border-top: 1px solid var(--milk-grey);
+    }
+
+    &:first-child {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        top: 50%;
+        right: 17px;
+        background: url("../../../assets/icons/arrow.svg") no-repeat center;
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.pause-time {
+  position: relative;
+  padding: 25px;
+  grid-column: 5 / span 4;
+  grid-row: 4;
+  background-color: var(--light-grey);
+
+  &--active {
+    background-color: var(--purple);
+
+    > .pause-time__img {
+      background-image: url("../../../assets/icons/pause-active.svg");
+    }
+  }
+
+  &__title {
+    display: block;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--black);
+  }
+
+  &__amount {
+    display: block;
+    font-weight: 400;
+    font-size: 64px;
+    color: var(--black);
+  }
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    width: 109px;
+    height: 109px;
+    background-image: url("../../../assets/icons/pause.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateY(-50%);
+  }
+}

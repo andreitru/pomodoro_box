@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./taskstimecount.scss";
 import { useSelector } from "react-redux";
-
+// todo расчет времени после сохранения настроек
 export function TasksTimeCount() {
   const [time, setTime] = useState("");
   const tasks = useSelector(({ tasks }) => tasks);

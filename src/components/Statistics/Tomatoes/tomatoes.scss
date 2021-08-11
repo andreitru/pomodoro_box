@@ -1,0 +1,37 @@
+.tomatoes {
+  padding-top: 23px;
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  max-width: 296px;
+  background-color: var(--light-grey);
+
+  &__tomato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__img {
+    width: 81px;
+    height: 81px;
+  }
+
+  &__amount {
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--grey);
+  }
+
+  &__count {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    background-color: var(--red);
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--white);
+  }
+}

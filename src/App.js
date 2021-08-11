@@ -1,15 +1,22 @@
 import React from "react";
 import "./App.scss";
 
-import { Header } from "./components/Header";
 import { Main } from "./components/Main";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Statistics } from "./components/Statistics";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Main />
-    </>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" >
+            <Main />
+          </Route>
+          <Route path="/statistics" >
+            <Statistics />
+          </Route>
+        </Switch>
+      </BrowserRouter>
   );
 }
 

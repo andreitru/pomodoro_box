@@ -49,8 +49,12 @@
   --grey: #999;
   --light-grey: #f4f4f4;
   --lighter-grey: #e4e4e4;
+  --milk-grey: #dedede;
   --dark-green: #899441;
   --light-green: #a8b64f;
+  --peach: #ffdda9;
+  --purple: #dfdcfe;
+  --cyan: #c5f1ff;
 }
 
 html {
@@ -93,7 +97,7 @@ ul {
 
 .container {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1440px;
   padding-left: 80px;
   padding-right: 80px;
 }
