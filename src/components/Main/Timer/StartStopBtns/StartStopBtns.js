@@ -9,6 +9,7 @@ import {
   setIsBreakPaused,
   setIsPaused,
   setIsStarted,
+  increaseStopsCount,
 } from "../../../../store/timeSlice";
 import { deleteTask } from "../../../../store/tasksSlice";
 import PropTypes from "prop-types";
@@ -44,6 +45,7 @@ function StartStopBtns({ setTaskTimeCounter, setBreakTimeCounter }) {
       dispatch(increaseBreaks());
     } else {
       dispatch(setStop());
+      dispatch(increaseStopsCount());
       setTaskTimeCounter(taskTime);
     }
   }

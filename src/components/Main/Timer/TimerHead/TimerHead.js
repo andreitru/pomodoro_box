@@ -11,9 +11,11 @@ function TimerHead({ title }) {
     isPaused,
     isBreak,
     isBreakPaused,
-    pomodoroCount,
-    breaksCount,
+    stat
+    // pomodoroCount,
+    // breaksCount,
   } = useSelector(({ time }) => time);
+  const today = stat[stat.length - 1];
 
   const timerHeadClassNames = classNames({
     "timer-head": true,
@@ -26,9 +28,9 @@ function TimerHead({ title }) {
       <TaskTitle className={"timer-head__title"} title={title} />
       <span className="timer-head__counter">
         {isStarted || isPaused
-          ? `Помидор ${pomodoroCount + 1}`
+          ? `Помидор ${today.pomodoroCount + 1}`
           : isBreak || isBreakPaused
-          ? `Перерыв ${breaksCount + 1}`
+          ? `Перерыв ${today.breaksCount + 1}`
           : ""}
       </span>
     </div>

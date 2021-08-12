@@ -5,6 +5,7 @@
   grid-row: 1;
   width: 100%;
   justify-self: flex-end;
+  filter: drop-shadow(0px 10px 63px rgba(0, 0, 0, 0.07));
 
   &__header {
     position: relative;
@@ -25,13 +26,18 @@
       background: url("../../../assets/icons/arrow.svg") no-repeat center;
       transform: translateY(-50%);
     }
+
+    &--opened {
+      border-bottom: 1px solid var(--milk-grey);
+
+      &::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
   }
 
   &__list-container {
-    position: absolute;
     width: 100%;
-    top: 0;
-    filter: drop-shadow(0px 10px 63px rgba(0, 0, 0, 0.07));
   }
 
   &__item {
@@ -45,19 +51,6 @@
 
     &:not(:first-child) {
       border-top: 1px solid var(--milk-grey);
-    }
-
-    &:first-child {
-      &::after {
-        content: "";
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        top: 50%;
-        right: 17px;
-        background: url("../../../assets/icons/arrow.svg") no-repeat center;
-        transform: translateY(-50%) rotate(180deg);
-      }
     }
   }
 }
