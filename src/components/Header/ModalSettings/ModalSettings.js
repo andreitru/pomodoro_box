@@ -6,7 +6,7 @@ import { setSettings } from "../../../store/timeSlice";
 
 export function ModalSettings({ isModalOpen, setIsModalOpen }) {
   const { taskTime, initialBreakTime, longBreakTime, taskCycle } = useSelector(
-    ({ time }) => time
+    ({ time }) => time.settings
   );
   const [taskDuration, setTaskDuration] = useState(taskTime / 60);
   const [breakDuration, setBreakDuration] = useState(initialBreakTime / 60);

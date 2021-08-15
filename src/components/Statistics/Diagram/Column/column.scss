@@ -1,0 +1,33 @@
+.column {
+  position: relative;
+  width: 77px;
+  min-height: 5px;
+  background-color: var(--salmon);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 5;
+
+  &:hover[style]:not(.column--active) {
+    background-color: var(--crayola);
+  }
+
+  &:not([style]) {
+    background-color: var(--dark-grey);
+    cursor: initial;
+  }
+
+  &--active {
+    background-color: var(--red);
+  }
+
+  &__week {
+    position: absolute;
+    bottom: -40px;
+    right: 50%;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--grey);
+    transform: translateX(50%);
+    z-index: 5;
+  }
+}

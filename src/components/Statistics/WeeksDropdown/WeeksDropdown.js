@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./weeksdropdown.scss";
 import classNames from "classnames";
 
-const options = ["Эта неделя", "Прошлая неделя", "2 недели назад"]
+const options = ["Эта неделя", "Прошедшая неделя", "2 недели назад"]
 
-export function WeeksDropdown() {
+export function WeeksDropdown({setCurrentWeek, setSelectedDay, thisWeek, lastWeek, twoWeeksAgo}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -13,6 +13,16 @@ export function WeeksDropdown() {
   }
 
   function onOptionClicked(value) {
+    if (value === options[0]) {
+      setCurrentWeek(thisWeek);
+      setSelectedDay(null);
+    } else if (value === options[1]) {
+      setCurrentWeek(lastWeek);
+      setSelectedDay(null);
+    } else if (value === options[2]) {
+      setCurrentWeek(twoWeeksAgo);
+      setSelectedDay(null);
+    }
     setSelectedOption(value);
     setIsOpen(false);
   }

@@ -1,5 +1,24 @@
 .diagram {
+  position: relative;
   grid-column: 4 / -1;
   grid-row: 2 / 4;
   background-color: var(--light-grey);
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--smoky-white);
+  }
+
+  &__columns {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 55px 50px;
+    gap: 30px;
+    height: 100%;
+    z-index: 5;
+  }
 }

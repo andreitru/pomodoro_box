@@ -25,13 +25,15 @@ const format = (time) => {
 };
 
 function Clock({
-  taskTimeCounter,
-  setTaskTimeCounter,
-  breakTimeCounter,
-  setBreakTimeCounter,
-}) {
-  const { isStarted, isBreak, isBreakPaused, taskTime, breakTime } =
+                 taskTimeCounter,
+                 setTaskTimeCounter,
+                 breakTimeCounter,
+                 setBreakTimeCounter,
+               }) {
+  const { isStarted, isBreak, isBreakPaused } =
     useSelector(({ time }) => time);
+  const { taskTime, breakTime } =
+    useSelector(({ time }) => time.settings);
   const tasks = useSelector(({ tasks }) => tasks);
   const dispatch = useDispatch();
 

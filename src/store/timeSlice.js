@@ -1,31 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { persistedSettings, persistedStat } from "./localStorage";
+
+Date.prototype.getWeek = function () {
+  const date = new Date(this.getTime());
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+  const week1 = new Date(date.getFullYear(), 0, 4);
+  return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000
+    - 3 + (week1.getDay() + 6) % 7) / 7);
+}
 
 const date = new Date().getDate();
 const month = new Date().getMonth();
 const year = new Date().getFullYear();
-const day = new Date().getDay();
+const day = new Date().getDay() === 0 ? 7 : new Date().getDay() + 1;
+const week = new Date().getWeek();
 
 export const timeSlice = createSlice({
   name: "time",
   initialState: {
-    taskTime: 20,
-    breakTime: 10,
-    initialBreakTime: 10,
-    longBreakTime: 10,
-    stat: [
-      {
-        date: 11,
-        month: 7,
-        year: 2021,
-        day: 3,
-        timeOnTask: 0,
-        timeOnPause: 0,
-        pomodoroCount: 0,
-        breaksCount: 0,
-        tasksCount: 0,
-      }
-    ],
-    taskCycle: 4,
+    settings: persistedSettings,
+    stat: persistedStat,
     isStarted: false,
     isPaused: false,
     isBreak: false,
@@ -39,6 +34,11 @@ export const timeSlice = createSlice({
       state.isBreak = false;
       state.isPaused = false;
       state.isBreakPaused = false;
+
+      const today = state.stat.find((i) => i.date === date && i.month === month && i.year === year);
+      if (today) {
+        today.timeOnTask += Math.round((Date.now() - state.nowTask) / 1000);
+      }
     },
     setIsStarted: (state, action) => {
       const today = state.stat.find((i) => i.date === date && i.month === month && i.year === year);
@@ -49,6 +49,7 @@ export const timeSlice = createSlice({
           month: month,
           year: year,
           day: day,
+          week: week,
           timeOnTask: 0,
           timeOnPause: 0,
           pomodoroCount: 0,
@@ -75,7 +76,6 @@ export const timeSlice = createSlice({
       state.isBreak = action.payload;
       state.isPaused = false;
       state.isBreakPaused = !action.payload;
-      const today = state.stat.find((i) => i.date === date && i.month === month && i.year === year);
       if (state.isBreak) {
         state.nowBreak = Date.now();
       }
@@ -108,10 +108,10 @@ export const timeSlice = createSlice({
       today.stopsCount++;
     },
     setSettings: (state, action) => {
-      state.taskTime = action.payload.taskTime;
-      state.initialBreakTime = action.payload.breakTime;
-      state.longBreakTime = action.payload.longBreakDuration;
-      state.taskCycle = action.payload.cycle;
+      state.settings.taskTime = action.payload.taskTime;
+      state.settings.initialBreakTime = action.payload.breakTime;
+      state.settings.longBreakTime = action.payload.longBreakDuration;
+      state.settings.taskCycle = action.payload.cycle;
     },
   },
 });

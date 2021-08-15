@@ -15,8 +15,10 @@ import { deleteTask } from "../../../../store/tasksSlice";
 import PropTypes from "prop-types";
 
 function StartStopBtns({ setTaskTimeCounter, setBreakTimeCounter }) {
-  const { taskTime, breakTime, isStarted, isPaused, isBreak, isBreakPaused } =
+  const { isStarted, isPaused, isBreak, isBreakPaused } =
     useSelector(({ time }) => time);
+  const { taskTime, breakTime } =
+    useSelector(({ time }) => time.settings);
   const tasks = useSelector(({ tasks }) => tasks);
   const dispatch = useDispatch();
 

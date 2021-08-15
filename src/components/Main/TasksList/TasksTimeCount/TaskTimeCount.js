@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 export function TasksTimeCount() {
   const [time, setTime] = useState("");
   const tasks = useSelector(({ tasks }) => tasks);
-  const { taskTime } = useSelector(({ time }) => time);
+  const { taskTime } = useSelector(({ time }) => time.settings);
 
   useEffect(() => {
     let tasksLength = 0;

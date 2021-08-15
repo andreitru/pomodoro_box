@@ -12,8 +12,6 @@ function TimerHead({ title }) {
     isBreak,
     isBreakPaused,
     stat
-    // pomodoroCount,
-    // breaksCount,
   } = useSelector(({ time }) => time);
   const today = stat[stat.length - 1];
 

@@ -14,6 +14,11 @@
   &__img {
     width: 81px;
     height: 81px;
+
+    &--big {
+      width: 115px;
+      height: 115px;
+    }
   }
 
   &__amount {

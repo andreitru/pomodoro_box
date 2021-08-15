@@ -1,14 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { persistedTasks } from "./localStorage";
 
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState: [
-    {
-      title: "Сверстать сайт",
-      id: 1,
-      count: 2,
-    },
-  ],
+  initialState: persistedTasks,
   reducers: {
     newTask: (state, action) => {
       state.push({

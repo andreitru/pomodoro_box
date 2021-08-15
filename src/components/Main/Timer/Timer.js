@@ -7,13 +7,19 @@ import StartStopBtns from "./StartStopBtns/StartStopBtns";
 import { useSelector } from "react-redux";
 
 export function Timer() {
-  const { taskTime, breakTime, stat } = useSelector(({ time }) => time);
+  const { stat } = useSelector(({ time }) => time);
+  const { taskTime, breakTime } = useSelector(({ time }) => time.settings);
   const today = stat[stat.length - 1];
   const tasks = useSelector(({ tasks }) => tasks);
   const [taskTimeCounter, setTaskTimeCounter] = useState(taskTime);
   const [breakTimeCounter, setBreakTimeCounter] = useState(breakTime);
   const title = tasks.length > 0 ? tasks[0].title : "Задач пока нет";
-  const tasksCounter = tasks.length > 0 ? today.tasksCount + 1 : null;
+  let tasksCounter = null;
+  if (tasks.length > 0 && today) {
+    tasksCounter = today.tasksCount + 1
+  } else if (tasks.length > 0 && !today) {
+    tasksCounter = 1;
+  }
 
   useEffect(() => {
     setTaskTimeCounter(taskTime);

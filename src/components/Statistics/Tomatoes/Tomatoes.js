@@ -1,14 +1,40 @@
 import React from "react";
 import "./tomatoes.scss";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { numeralWords } from "../../../utils";
 
-export function Tomatoes() {
+const numerals = ["помидор", "помидора", "помидоров"]
+
+function Tomatoes({ selectedColumn }) {
+
+  const imgClassNames = classNames({
+    "tomatoes__img": true,
+    "tomatoes__img--big": !selectedColumn
+  })
+
   return (
     <div className="tomatoes">
       <div className="tomatoes__tomato">
-        <img className="tomatoes__img" src="../../../assets/icons/tomato.svg" alt="tomato" />
-        <span className="tomatoes__amount">x 22</span>
+        <img className={imgClassNames}
+             src={selectedColumn ? "../../../assets/icons/tomato.svg" : "../../../assets/icons/tomato-smile.svg"}
+             alt="tomato"
+        />
+        <span className="tomatoes__amount">{selectedColumn && `x ${selectedColumn.pomodoroCount}`}</span>
       </div>
-      <span className="tomatoes__count">22 помидора</span>
+      {selectedColumn && (
+        <span className="tomatoes__count">
+          {`${selectedColumn.pomodoroCount} ${numeralWords(selectedColumn.pomodoroCount, numerals)}`}
+        </span>
+      )
+      }
     </div>
   )
 }
+
+Tomatoes.propTypes = {
+  currentWeek: PropTypes.array,
+  day: PropTypes.number
+}
+
+export default Tomatoes;
