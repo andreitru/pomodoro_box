@@ -8,21 +8,21 @@ import store from "./store/store";
 
 function App() {
   return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" >
-            <Main />
-          </Route>
-          <Route path="/statistics" >
-            <Statistics />
-          </Route>
-        </Switch>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Main />
+        </Route>
+        <Route path="/statistics">
+          <Statistics />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
 store.subscribe(() => {
-  localStorage.setItem("store", JSON.stringify(store.getState()))
-})
+  localStorage.setItem("store", JSON.stringify(store.getState()));
+});
 
 export default App;

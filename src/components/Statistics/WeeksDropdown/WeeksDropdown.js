@@ -30,7 +30,7 @@ export function WeeksDropdown({setCurrentWeek, setSelectedDay, thisWeek, lastWee
   const dropdownClassNames = classNames({
     "weeks-dropdown__header": true,
     "weeks-dropdown__header--opened": isOpen,
-  })
+  });
 
   return (
     <div className="weeks-dropdown">
@@ -54,7 +54,6 @@ export function WeeksDropdown({setCurrentWeek, setSelectedDay, thisWeek, lastWee
               ))}
           </ul>
         </div>
-
       )}
     </div>
   );

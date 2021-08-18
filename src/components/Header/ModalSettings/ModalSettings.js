@@ -20,22 +20,6 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
     setIsModalOpen(false);
   }
 
-  function handleTaskDurationChange(e) {
-    setTaskDuration(e.target.value);
-  }
-
-  function handleBreakDurationChange(e) {
-    setBreakDuration(e.target.value);
-  }
-
-  function handleLongBreakDurationChange(e) {
-    setLongBreakDuration(e.target.value);
-  }
-
-  function handleCycleChange(e) {
-    setCycle(e.target.value);
-  }
-
   function buttonMinusClick(state, func) {
     const num = state === cycle || state === breakDuration ? 1 : 5;
     if (state > 5) {
@@ -47,10 +31,10 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
 
   function buttonPlusClick(state, func) {
     const num = state === cycle || state === breakDuration ? 1 : 5;
-    if (state >= 5) {
-      func(state + num);
-    } else if (state <= 5 && state >= 1) {
+    if (state < 5) {
       func(state + 1);
+    } else {
+      func(state + num);
     }
   }
 
@@ -75,7 +59,7 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
         <div className="modal__container">
           <span className="modal__title">Настройки</span>
           <form className="settings__form">
-            <label className="settings__label">
+            <div className="settings__label">
               Продолжительность помидора, мин.
               <button
                 type="button"
@@ -89,7 +73,6 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
                 type="number"
                 value={taskDuration}
                 className="settings__input"
-                onChange={handleTaskDurationChange}
               />
               <button
                 type="button"
@@ -98,13 +81,14 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
               >
                 +
               </button>
-            </label>
-            <label className="settings__label">
+            </div>
+            <div className="settings__label">
               Продолжительность короткого перерыва, мин.
               <button
                 type="button"
                 className="btn-reset settings__btn settings__btn--minus"
-                onClick={() => buttonMinusClick(breakDuration, setBreakDuration)}
+                onClick={() => buttonMinusClick(breakDuration, setBreakDuration)
+                }
               >
                 -
               </button>
@@ -113,7 +97,6 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
                 type="number"
                 value={breakDuration}
                 className="settings__input"
-                onChange={handleBreakDurationChange}
               />
               <button
                 type="button"
@@ -122,8 +105,8 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
               >
                 +
               </button>
-            </label>
-            <label className="settings__label">
+            </div>
+            <div className="settings__label">
               Продолжительность длинного перерыва, мин.
               <button
                 type="button"
@@ -137,7 +120,6 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
                 type="number"
                 value={longBreakDuration}
                 className="settings__input"
-                onChange={handleLongBreakDurationChange}
               />
               <button
                 type="button"
@@ -146,8 +128,8 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
               >
                 +
               </button>
-            </label>
-            <label className="settings__label">
+            </div>
+            <div className="settings__label">
               Количество помидоров до длинного перерыва
               <button
                 type="button"
@@ -161,7 +143,6 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
                 type="number"
                 value={cycle}
                 className="settings__input"
-                onChange={handleCycleChange}
               />
               <button
                 type="button"
@@ -170,7 +151,7 @@ export function ModalSettings({ isModalOpen, setIsModalOpen }) {
               >
                 +
               </button>
-            </label>
+            </div>
             <button
               className="btn-reset modal__confirm"
               type="submit"

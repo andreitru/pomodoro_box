@@ -15,7 +15,10 @@ export function Header() {
         <Link to="/statistics" className="header__stat">
           Статистика
         </Link>
-        <button className="header__settings btn-reset" onClick={() => setIsModalOpen(!isModalOpen)} />
+        <button
+          className="header__settings btn-reset"
+          onClick={() => setIsModalOpen(!isModalOpen)}
+        />
       </div>
       <ModalSettings
         isModalOpen={isModalOpen}
